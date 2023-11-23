@@ -1,11 +1,10 @@
 // Assignment code here
-
 function generatePassword() {
   var preferredLength = prompt("Select password length (between 8 and 128 characters):")
 
+
   //Alert for if password length is not between 8 and 128 or if it's NaN, try again
-  // ! Try putting bang operator specifically to first 2 conditions
-  if (!(preferedLength >=8 && preferredLength <=128 && !isNaN(preferredLength))) {
+  if (!(preferredLength >=8 && preferredLength <=128 && !isNaN(preferredLength))) {
     alert("Must be between 8 and 128.");
     return generatePassword();
 }
@@ -35,18 +34,32 @@ if (includeUpper) combinedChar += upperChar;
 if (includeNumbers) combinedChar += numChar;
 if (includeSpecial) combinedChar += specialChar;
 
-
-
-
-
+// Function to generate one character randomly from the combined character set
+function generateOneChar() {
+  var random = Math.floor(Math.random() * combinedChar.length);
+  return combinedChar[random];
 }
 
+// Initialize empty string to store generated password
+var generatedPassword = ""
 
+// Recuresive function to build a password of the specified length
+function buildPassword(length) {
+  // when teh desired length is reached, return an empty string
+  if(length === 0) {
+    return "";
+  }
 
+  // Add one character to the generated password and call the function recursively
+  generatedPassword += generateOneChar();
+  buildPassword(length - 1);
+}
 
-
-
-
+//build password based on preferred length
+buildPassword(preferredLength);
+// Return teh generated password
+return generatedPassword;
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
