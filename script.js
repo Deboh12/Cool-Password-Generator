@@ -17,7 +17,7 @@ var includeSpecial = confirm("Include special characters?");
 
 // Alert for if user decline all four character options, try again
 if (!(includeLower || includeUpper || includeNumbers || includeSpecial)) {
-  alert("At least one character type shoudl be selected");
+  alert("At least one character type should be selected");
   return generatePassword();
 }
 
