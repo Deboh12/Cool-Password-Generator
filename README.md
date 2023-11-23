@@ -1,6 +1,7 @@
 # Cool-Password-Generator
 
 ## Link to Deployed Application
+https://deboh12.github.io/Cool-Password-Generator/
 
 ## Description
 
